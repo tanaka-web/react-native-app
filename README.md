@@ -17,7 +17,7 @@ export const firebaseConfig = {
 ## main command
 ```
 - パッケージインストール
-$ yarn i
+$ yarn install
 
 - 開発環境
 $ yarn web
