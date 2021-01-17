@@ -7,6 +7,7 @@ import { sendMail } from '../../apis/mail/send';
 import { DESIRED_JOB, SEND_MAIL_TEXT } from '../../config';
 import { createUser } from '../../apis/users/create';
 import { color } from '../../constants/colors';
+import { useNavigation } from '@react-navigation/native';
 
 const schema = Yup.object().shape({
   username: Yup.string().required('氏名は必須です。'),
@@ -18,6 +19,7 @@ const schema = Yup.object().shape({
 });
 
 const Create: React.FC = () => {
+  const { goBack } = useNavigation();
   const handleOnSubmit = useCallback((values) => {
     try {
       createUser({
@@ -33,6 +35,7 @@ const Create: React.FC = () => {
       return;
     }
     window.alert('エントリーを受け付けました\n登録したメールアドレスにメールを送信しました。');
+    goBack();
   }, []);
 
   return (
@@ -43,7 +46,7 @@ const Create: React.FC = () => {
             username: '',
             email: '',
             age: '',
-            desired_job: '職種1',
+            desired_job: undefined,
             desired_reason: '',
           }}
           validateOnMount
