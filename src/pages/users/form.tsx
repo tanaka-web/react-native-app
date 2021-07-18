@@ -18,7 +18,7 @@ const schema = Yup.object().shape({
   desired_job: Yup.string().required('希望職種は必須です。'),
 });
 
-const Create: React.FC = () => {
+const UsersForm: React.FC = () => {
   const { goBack } = useNavigation();
   const handleOnSubmit = useCallback((values) => {
     try {
@@ -160,7 +160,7 @@ const Create: React.FC = () => {
   );
 };
 
-export default Create;
+export default UsersForm;
 
 const Styles = StyleSheet.create({
   container: {
